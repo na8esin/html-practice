@@ -1,0 +1,40 @@
+<!--
+  https://developer.mozilla.org/ja/docs/Web/API/CSS/highlights_static
+  うまく動かない。。。
+  Chromeでも使えるはずだけど、実戦投入は面倒そうだから別の手を考える
+-->
+<p id="address">
+  Wyatt Earp<br>
+  101 E. Main St.<br />
+  Dodge City, KS<br />
+  67801<br />
+  USA
+</p>
+
+<hr />
+<p>Nodes in the original address:</p>
+<ol id="log"></ol>
+
+<script>
+  const parentNode = document.getElementById("address");
+
+  const range1 = new Range();
+  range1.setStart(parentNode, 2);
+  range1.setEnd(parentNode, 3);
+
+  const range2 = new Range();
+  range2.setStart(parentNode, 5);
+  range2.setEnd(parentNode, 6);
+
+  const myCustomHighlight = new Highlight(range1, range2);
+
+  CSS.highlights.set("my-custom-highlight", myCustomHighlight);
+</script>
+
+<style>
+  ::highlight(my-custom-highlight) {
+    background-color: yellow;
+    color: black;
+  }
+</style>
+

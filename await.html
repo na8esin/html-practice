@@ -1,0 +1,29 @@
+// sleep関数はいまだにないそうで。
+function sleep(msec) {
+   return new Promise(function(resolve) {
+      setTimeout(function() {resolve()}, msec);
+   })
+}
+
+async function asyncCall() {
+  const t0 = performance.now();
+  Promise.all([delayOneSecond(), delayOneSecond()])
+  const t1 = performance.now();
+  console.log(`took ${t1 - t0} milliseconds.`);
+
+
+  const t2 = performance.now();
+  p1 = delayOneSecond()
+  p2 = delayOneSecond()
+  await p1
+  await p2
+  const t3 = performance.now();
+  console.log(`took ${t3 - t2} milliseconds.`);
+}
+
+
+async function delayOneSecond() {
+    await sleep(1000);
+}
+
+asyncCall();

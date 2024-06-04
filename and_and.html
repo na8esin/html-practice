@@ -1,0 +1,11 @@
+<script>
+  // 論理積の性質を利用して、条件が合致する場合のみ値を返す
+  // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND
+
+  function state(state) {
+    return state == "hello" && "world"
+  }
+
+  console.log(state("bye.")) // false
+  console.log(state("hello")) // world
+</script>
