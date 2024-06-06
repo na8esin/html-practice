@@ -15,3 +15,8 @@ function Square({value, onSquareClick}: SquareProps) {
 ```
 
 というか、divにすればいいだけだった。
+  -> 一番下の行の四角から、色がはみ出しちゃう
+
+https://developer.mozilla.org/ja/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing
+マージンの相殺
+

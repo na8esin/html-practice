@@ -1,0 +1,42 @@
+<style>
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left; /* そもそもここにfloat入ってるとコンポーネント化しづらくない？他のコンポーネントがこいつの中身まで気にしないといけないから */
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.board-container {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* clearfixっていうプロパティとかがあるわけじゃないのか */
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+</style>
+
+<div class="clearfix">
+  <button class="square"><div style="background-color: crimson;">X</div></button>
+  <!-- 一つだけでもはみ出ちゃうからね。 -->
+</div>
+<div style="height: 16px;"><!-- ただの余白 --></div>
+<div class="board-container">
+  <button class="square"><div style="background-color: springgreen;">X</div></button>
+  <button class="square"><div style="background-color: springgreen;">X</div></button>
+  <button class="square"><div style="background-color: springgreen;">X</div></button>
+  <button class="square"><div style="background-color: crimson;">X</div></button>
+</div>
