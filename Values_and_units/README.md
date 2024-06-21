@@ -1,0 +1,1 @@
+chromeだとrepeating-linear-gradientがズレる

@@ -1,0 +1,43 @@
+<style>
+  body {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 24px;
+  gap: 24px;
+  background-color: floralwhite;
+  font-family: sans-serif;
+}
+
+@supports not (height: 1lh) {
+  body::before {
+    grid-column: 1 / -1;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: tomato;
+    color: white;
+    content: "このブラウザーはまだ lh 単位に対応していません。";
+  }
+}
+
+p {
+  margin: 0;
+  background-image: repeating-linear-gradient(
+    to top,
+    lightskyblue 0 2px,
+    transparent 2px 1lh
+  );
+}
+</style>
+
+<p style="line-height: 2em">
+  Summer is a time for adventure, and this year was no exception. I had many
+  exciting experiences, but two of my favorites were my trip to the beach and my
+  week at summer camp.
+</p>
+
+<p style="line-height: 4em">
+  At the beach, I spent my days swimming, collecting shells, and building
+  sandcastles. I also went on a boat ride and saw dolphins swimming alongside
+  us.
+</p>
