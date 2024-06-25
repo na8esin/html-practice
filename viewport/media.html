@@ -1,0 +1,30 @@
+<style>
+  html {
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+</style>
+<h1>Viewport</h1>
+<p>Window height: <span id="height"></span></p>
+<p>Window width: <span id="width"></span></p>
+
+<script>
+const heightOutput = document.querySelector("#height");
+const widthOutput = document.querySelector("#width");
+
+function reportWindowSize() {
+  heightOutput.textContent = window.innerHeight;
+  widthOutput.textContent = window.innerWidth;
+}
+
+window.onresize = reportWindowSize;
+</script>

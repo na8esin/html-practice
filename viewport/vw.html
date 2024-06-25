@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Viewport</title>
+  <meta name="viewport" content="width=200, initial-scale=1" />
+  <style>
+    div {
+      background-color: cyan;
+      margin: 10px;
+    }
+    .a {
+      width: 50vw;
+    }
+    h1 {
+      font-size: 6vw; /* ズームしても変わらない */
+    }
+    h2 {
+      font-size: calc(1.1rem + 6vw);
+      /*
+        ズームすると大きくなる。変化は少ないけど、ウィンドウサイズが変わると大きくなる。
+      */
+    }
+  </style>
+</head>
+<body>
+  <h1>Viewport</h1>
+  <h2>Viewport</h2>
+  <p>何のstyleも無いテキスト。横幅が変わっても変化なし</p>
+
+  <div class="a">50vw。viewport自体が変化するからここも変化する。htmlタグの幅のちょうど1/2</div>
+  <div style="width: 50%;">50%。上より若干短い。bodyタグのちょうど1/2</div>
+  <div style="width: 700px;">段落ですよ700px</div>
+</body>
+</html>
