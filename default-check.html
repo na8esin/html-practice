@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <div id="font-size"></div>
+    <script>
+      const html = document.querySelector('html')
+      const compStyles = window.getComputedStyle(html);
+      const fontSize = document.querySelector('#font-size')
+      fontSize.textContent = compStyles.getPropertyValue("font-size")
+    </script>
+  </body>
+</html>
+<!-- pixel8も16px -->

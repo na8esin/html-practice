@@ -12,6 +12,8 @@ npm install --global serve
 # 難しい
 ## em
 ## ビューポート
+## document.querySelector('html').clientWidth
+って何？
 
 # こんなんある
 https://a11y-guidelines.freee.co.jp/index.html
