@@ -1,0 +1,26 @@
+<style>
+  details {
+    transition: 0.5s;
+    height: 1em;
+    .inner {
+      list-style-image: url("question-1445-svgrepo-com.svg");
+    }
+  }
+  details > details[open] {
+    height: 4em;
+    .inner {
+      list-style-image: url("question-1445-svgrepo-com-rotate.svg");
+    }
+  }
+</style>
+<details>
+  <summary>課金について</summary>
+  <details style="margin-left: 1em;">
+    <summary class="inner">都度課金</summary>
+    <div style="margin-left: 2em;">都度都度課金されます</div>
+  </details>
+  <details style="margin-left: 1em;">
+    <summary class="inner">継続課金</summary>
+    <div style="margin-left: 2em;">月一や年一で課金されます</div>
+  </details>
+</details>
