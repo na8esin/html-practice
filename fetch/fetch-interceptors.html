@@ -1,0 +1,26 @@
+<script>
+  const { fetch: originalFetch } = window;
+  window.fetch = async (...args) => {
+    let [resource, config] = args;
+    const URLcutOff = "https://dummyjson.com";
+    const trailing = resource.slice(URLcutOff.length);
+    const response = await originalFetch(resource, config);
+    if (trailing.startsWith("/quotes?limit=1")) {
+      Object.defineProperty(response, 'status', {
+        value: 404,
+        writable: false,
+      });
+      // bodyはReadableStreamだから、この書き換え方だとダメっぽい
+      Object.defineProperty(response, 'body', {
+        value: {"error_code": "not_found",    "message": "リクエストは見つかりませんでした。"},
+        writable: false,
+      });
+    }
+    return response;
+  };
+
+  fetch("https://dummyjson.com/quotes?limit=1")
+    .then((response) => console.log(response));
+  fetch("https://dummyjson.com/quotes?limit=2")
+    .then((response) => console.log(response));
+</script>
