@@ -1,6 +1,17 @@
 <script>
 
-const colors = fetch("https://dummyjson.com/quotes?limit=1")
+fetch(
+  "http://127.0.0.1:3000/api/sample",
+  {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    },
+    body: JSON.stringify({page: "1"}),
+  }
+)
   .then((response) => console.log(response));
 
 </script>
