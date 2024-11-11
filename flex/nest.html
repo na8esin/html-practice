@@ -4,14 +4,26 @@
     background-color: #f1f1f1;
     flex-flow: column;
     width: 50%; /* 横長すぎると見辛いから */
+
+    .child1 {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .child2 {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
+
+
 </style>
 
 <div class="container">
-  <div style="display: flex; justify-content: space-between;">
+  <div class="child1">
     <div>John</div>
     <div>Paul</div>
   </div>
-  <div>welcom</div>
-  <div style="display: flex; justify-content: flex-end;">delete</div>
+  <div>Welcom</div>
+  <div class="child2">Delete</div>
 </div>
