@@ -1,0 +1,52 @@
+<style>
+  .parent {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    font-weight: bold;
+
+    .child {
+      display: flex;
+      gap: 10px;
+    }
+
+    &.child2 { /* parent child2みたいな使い方か、hoverの時に使う */
+      display: flex;
+      flex-direction: row;
+    }
+
+    & .child3 {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .sample1.sample2{
+    color: red;
+  }
+</style>
+
+<div class="parent">
+  <div class="child"><div>Child 1</div><div>Child 1</div></div>
+  <div class="child2"><div>Child 2</div><div>Child 2</div></div>
+  <div class="child3">Child 3</div>
+</div>
+
+<div class="child"><div>Child 1</div><div>Child 1</div></div>
+<div class="child2"><div>Child 2</div><div>Child 2</div></div>
+
+<div class="parent child2">parent child2</div>
+
+
+
+<div  class="sample1 sample2">
+  <p  class="sample3">サンプルテキスト</p>
+</div>
+
+<div  class="sample1">
+  <p  class="sample3">サンプルテキスト</p>
+</div>
+
+<div  class="sample2">
+  <p  class="sample3">サンプルテキスト</p>
+</div>
