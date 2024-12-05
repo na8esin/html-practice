@@ -7,7 +7,8 @@
       color: orange;
     }
 
-    &.child2 { /* parent child2みたいな使い方か、hoverの時に使う */
+    &.child2 {
+      /* parent child2みたいな使い方か、hoverの時に使う */
       color: blue;
     }
 
@@ -17,16 +18,19 @@
   }
 </style>
 
-<div class="parent">
+<div style="border: solid; width: 240px; padding: 8px;">
+  <div class="parent">
+    <div class="child"><div>Child 1</div></div>
+    <!-- colorが適用されない↓ -->
+    <div class="child2"><div>Child 2</div></div>
+    <div class="child3">Child 3</div>
+  </div>
+
+  <!-- こっちは青くなる↓ -->
+  <div class="parent child2">parent child2</div>
+
+  <!-- 下記3つは、どれも色がつかない -->
   <div class="child"><div>Child 1</div></div>
-  <div class="child2"><div>Child 2</div></div><!-- colorが適用されない -->
-  <div class="child3">Child 3</div>
+  <div class="child2"><div>Child 2</div></div>
+  <div class="child3"><div>Child 3</div></div>
 </div>
-
-<!-- 下記3つは、どれも色がつかない -->
-<div class="child"><div>Child 1</div></div>
-<div class="child2"><div>Child 2</div></div>
-<div class="child3"><div>Child 3</div></div>
-<div style="padding-bottom: 16;"></div>
-
-<div class="parent child2">parent child2</div><!-- こっちは青くなる -->
