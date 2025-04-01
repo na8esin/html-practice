@@ -1,0 +1,24 @@
+<!-- 一つの要素内に左上と、中心に小要素を配置する -->
+<style>
+  .container {
+    height: 300px;
+    width: 300px;
+    border: solid 1px #000;
+    position:  relative;
+    display: flex;
+
+    .top-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .center {
+      margin: auto;
+    }
+  }
+</style>
+<div class="container">
+  <div class="top-left">top left top left top left</div>
+  <div class="center">center center</div>
+</div>
