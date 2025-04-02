@@ -1,0 +1,23 @@
+{
+  "name": "html-practice",
+  "version": "1.0.0",
+  "description": "php -S localhost:8000",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/na8esin/html-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/na8esin/html-practice/issues"
+  },
+  "homepage": "https://github.com/na8esin/html-practice#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.17"
+  }
+}
