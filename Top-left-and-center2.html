@@ -1,0 +1,27 @@
+<!--
+ 一つの要素内に左上と、中心に小要素を配置する
+ heightの定数が２箇所で定義されるので、メンテが面倒
+-->
+<style>
+  .container {
+    height: 300px;
+    width: 300px;
+    border: solid 1px #000;
+    position: relative;
+
+    .top-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .center {
+      text-align: center;
+      line-height: 300px;
+    }
+  }
+</style>
+<div class="container">
+  <div class="top-left">top left top left top left</div>
+  <div class="center">center center</div>
+</div>
