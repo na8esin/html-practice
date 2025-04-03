@@ -1,0 +1,19 @@
+<script>
+  // 5msでインターバルしてるので実行注意
+  const intervalID = setInterval(myCallback, 50);
+
+  function myCallback() {
+    fetch("/api/sample", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    }).then((response) => console.log(response));
+  }
+</script>
+
+<button type="button" onclick="clearInterval(intervalID);">
+  Stop Interval
+</button>
