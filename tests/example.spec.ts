@@ -1,12 +1,30 @@
-import { test } from '@playwright/test';
-import { readdir } from 'node:fs/promises';
-import path from 'node:path';
+import { test } from "@playwright/test";
+import { opendir } from "node:fs/promises";
+import path from "node:path";
 
-test('take screenshots', async ({ page }) => {
-  const files = await readdir('public');
-  for (const file of files)
-    if (file.endsWith('.html')) {
-      await page.goto(`/${file}`);
-      await page.screenshot({ path: `public/${path.parse(file).name}.png` });
+async function readDirRecursively(
+  baseDir: string,
+  dir: string,
+  callback: (dirExceptBaseDir: string, path: string) => Promise<void>
+) {
+  const dirHandle = await opendir(dir);
+
+  for await (const dirent of dirHandle) {
+    const currentPath = `${dir}/${dirent.name}`;
+    const dirExceptBaseDir = currentPath.replace(baseDir, "");
+    await callback(dirExceptBaseDir, currentPath);
+
+    if (dirent.isDirectory()) {
+      await readDirRecursively(baseDir, currentPath, callback);
     }
+  }
+}
+
+test("take screenshots", async ({ page }) => {
+  await readDirRecursively("public", "public", async (dirExceptBaseDir, currentPath) => {
+    if (currentPath.endsWith(".html")) {
+      await page.goto(dirExceptBaseDir);
+      await page.screenshot({ path: `${path.parse(currentPath).name}.png` });
+    }
+  });
 });
