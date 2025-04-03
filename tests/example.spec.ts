@@ -1,18 +1,12 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
+import { readdir } from 'node:fs/promises';
+import path from 'node:path';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+test('take screenshots', async ({ page }) => {
+  const files = await readdir('public');
+  for (const file of files)
+    if (file.endsWith('.html')) {
+      await page.goto(`/${file}`);
+      await page.screenshot({ path: `public/${path.parse(file).name}.png` });
+    }
 });
