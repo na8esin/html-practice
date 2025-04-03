@@ -21,10 +21,19 @@ async function readDirRecursively(
 }
 
 test("take screenshots", async ({ page }) => {
-  await readDirRecursively("public", "public", async (dirExceptBaseDir, currentPath) => {
-    if (currentPath.endsWith(".html")) {
-      await page.goto(dirExceptBaseDir);
-      await page.screenshot({ path: `${path.parse(currentPath).name}.png` });
+  await readDirRecursively(
+    "public",
+    "public",
+    async (dirExceptBaseDir, currentPath) => {
+      if (currentPath.endsWith(".html")) {
+        await page.goto(dirExceptBaseDir);
+        const savePath = `${path.parse(currentPath).dir}/${
+          path.parse(currentPath).name
+        }.png`;
+        await page.screenshot({
+          path: savePath,
+        });
+      }
     }
-  });
+  );
 });
