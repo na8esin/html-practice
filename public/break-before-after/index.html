@@ -1,23 +1,92 @@
-<style>
-  .container {
-    width: 794px;
-    height: 1096px;
-    padding: 0;
-    margin: 0;
-    border: 1px solid black;
-  }
+<head>
+  <link rel="stylesheet" href="_print.css" />
+  <style>
+    body {
+      padding-top: 0;
+      margin: 0;
+      height: auto;
+      min-height: inherit;
+      padding-bottom: 0;
+      padding: 0;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      position: relative;
+    }
 
-  .page-break {
-    break-after: page;
-  }
+    .container {
+      box-sizing: border-box;
+      width: 794px;
+      height: 1123px;
+      /*margin: auto;*/
+      padding: 0 16px;
+      position: relative;
+      overflow: hidden;
+    }
 
-  @media print {
-  body {
-    padding-bottom: 0;
-  }
-}
+    .page-break {
+      break-after: page;
+    }
 
-</style>
-<div class="container page-break">hello</div>
+    @media print {
+      body {
+        padding-bottom: 0;
+        -webkit-print-color-adjust: exact;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<!-- １つのdivの高さが18px 62個いける -->
+<div class="container page-break">
+  <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+  <div>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+  <div>cccccccccccccccccccccccc</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+  <div>hello</div>
+</div>
 <div class="container page-break">hello</div>
 <div class="container">hello</div>
