@@ -1,0 +1,24 @@
+<!--
+safariの印刷プレビューで上の方が切れる問題の再現コード
+
+https://github.com/mdn/browser-compat-data/issues/23178#issuecomment-2919111721
+-->
+
+<style>
+  @media print {
+    @page {
+      margin: 0; /* ここが原因 */
+    }
+  }
+</style>
+
+<div>
+  <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+  <div>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+  <div>cccccccccccccccccccccccc</div>
+</div>
+<script>
+  window.onload = function () {
+    window.print();
+  };
+</script>
