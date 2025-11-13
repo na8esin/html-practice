@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+https://katashin.info/posts/visual-viewport-api/
+https://katashin.info/posts/visual-viewport-api/demo/keyboard-button/
+
+キーボードとスクロールが組み合わさると,iphoneではvisualViewportHeightの計算がうまくいかない
+-->
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>キーボード上部に張り付くボタンのデモ - Katashin .info</title>
+    <style>
+      textarea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border: none;
+        resize: none;
+        outline: 0;
+      }
+
+      #buttons {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f0f0f0;
+        transition: transform 0.1s ease-out;
+        transform-origin: left bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="textarea">
+            ここは大きなテキストエリアです。
+            モバイルデバイスでキーボードを出現させた時、
+            その上にボタンが付いてきます。
+            ズーム倍率を変更しても同じ大きさになります。
+        </textarea
+    >
+    <div id="buttons">
+      キーボードに追従します。<span id="visualViewportHeight"></span>
+    </div>
+    <script>
+      const buttons = document.getElementById("buttons");
+      function viewportHandler() {
+        const e = window.visualViewport,
+          t = `translate(${e.offsetLeft}px, ${
+            e.offsetTop + e.height - document.documentElement.clientHeight
+          }px)`,
+          n = `scale(${1 / e.scale})`;
+        buttons.style.transform = `${t} ${n}`;
+        document.getElementById(
+          "visualViewportHeight"
+        ).textContent = `vvh: ${e.height}px`;
+      }
+      window.visualViewport.addEventListener("scroll", viewportHandler),
+        window.visualViewport.addEventListener("resize", viewportHandler);
+    </script>
+  </body>
+</html>
