@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   iPhone + safariでは、テキストボックスにfocusしてる時に、一番下までスクロールすると
-  visualViewportHeightの計算がうまくいかない
+  visualViewportHeightの数値がおかしくなる
 -->
 <html lang="ja">
   <head>
@@ -36,7 +36,7 @@
           "visualViewportHeight"
         ).textContent = `vvh: ${vv.height}px`;
       }
-      
+
       window.visualViewport.addEventListener("scroll", viewportHandler);
       window.visualViewport.addEventListener("resize", viewportHandler);
     </script>
