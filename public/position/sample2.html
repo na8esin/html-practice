@@ -9,7 +9,7 @@ https://katashin.info/posts/visual-viewport-api/demo/keyboard-button/
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>キーボード上部に張り付くボタンのデモ - Katashin .info</title>
+    <title>キーボード上部に張り付くボタンのデモ</title>
     <style>
       textarea {
         position: absolute;
@@ -36,13 +36,13 @@ https://katashin.info/posts/visual-viewport-api/demo/keyboard-button/
     </style>
   </head>
   <body>
-    <textarea id="textarea">
-            ここは大きなテキストエリアです。
-            モバイルデバイスでキーボードを出現させた時、
-            その上にボタンが付いてきます。
-            ズーム倍率を変更しても同じ大きさになります。
-        </textarea
+    <textarea
+      id="textarea"
+      aria-label="テキスト入力エリア"
+      placeholder="ここは大きなテキストエリアです。モバイルデバイスでキーボードを出現させた時、その上にボタンが付いてきます。ズーム倍率を変更しても同じ大きさになります。"
     >
+    ここは大きなテキストエリアです。モバイルデバイスでキーボードを出現させた時、その上にボタンが付いてきます。ズーム倍率を変更しても同じ大きさになります。
+    </textarea>
     <div id="buttons">
       キーボードに追従します。<span id="visualViewportHeight"></span>
     </div>

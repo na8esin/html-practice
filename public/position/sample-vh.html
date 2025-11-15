@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+100dvhの検証
+-->
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>100dvhの検証</title>
+    <style>
+      body,
+      html {
+        height: 100vh;
+      }
+
+      #alert {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f0f0f0;
+        transition: transform 0.1s ease-out;
+        transform-origin: left bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="テキスト入力欄" />
+    <div id="alert">アラートです。<span id="visualViewportHeight"></span></div>
+    <script>
+      const alert = document.getElementById("alert");
+      function viewportHandler() {
+        const e = window.visualViewport,
+          t = `translate(${e.offsetLeft}px, ${
+            e.offsetTop + e.height - document.documentElement.clientHeight
+          }px)`,
+          n = `scale(${1 / e.scale})`;
+        alert.style.transform = `${t} ${n}`;
+        document.getElementById(
+          "visualViewportHeight"
+        ).textContent = `vvh: ${e.height}px`;
+      }
+      window.visualViewport.addEventListener("scroll", viewportHandler),
+        window.visualViewport.addEventListener("resize", viewportHandler);
+    </script>
+  </body>
+</html>

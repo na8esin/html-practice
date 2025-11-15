@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+  iPhone + safariでは、テキストボックスにfocusしてる時に、一番下までスクロールすると
+  visualViewportHeightの計算がうまくいかない
+-->
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1, viewport-fit=cover"
+    />
+    <title>キーボード上部に張り付くボタンのデモ</title>
+    <style>
+      body {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      #message {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        bottom: 16px;
+        width: calc(100% - 32px);
+        margin: 0 16px;
+        background-color: #f0f0f0;
+        transition: transform 0.1s ease-out;
+        transform-origin: left bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="テキスト入力欄" />
+    <div id="message">
+      キーボードに追従します。<span id="visualViewportHeight"></span>
+    </div>
+    <script>
+      const message = document.getElementById("message");
+
+      function viewportHandler() {
+        const e = window.visualViewport;
+        const t = `translate(${e.offsetLeft}px, ${
+          e.offsetTop + e.height - document.documentElement.clientHeight
+        }px)`;
+        const n = `scale(${1 / e.scale})`;
+        message.style.transform = `${t} ${n}`;
+
+        // visualViewportの高さを表示
+        document.getElementById(
+          "visualViewportHeight"
+        ).textContent = `vvh: ${e.height}px`;
+      }
+      window.visualViewport.addEventListener("scroll", viewportHandler);
+      window.visualViewport.addEventListener("resize", viewportHandler);
+    </script>
+  </body>
+</html>
