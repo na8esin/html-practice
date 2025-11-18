@@ -1,72 +1,66 @@
 <!DOCTYPE html>
+<!--
+https://katashin.info/posts/visual-viewport-api/
+https://katashin.info/posts/visual-viewport-api/demo/keyboard-button/
+
+キーボードとスクロールが組み合わさると,iphoneではvisualViewportHeightの計算がうまくいかない
+-->
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Position Test</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>キーボード上部に張り付くボタンのデモ</title>
     <style>
-      .float_container {
+      textarea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border: none;
+        resize: none;
+        outline: 0;
+      }
+
+      #buttons {
+        display: flex;
+        justify-content: center;
         position: fixed;
-        bottom: 16px;
-        background-color: aqua;
-      }
-      body {
-        font-size: 16px;
-        height: 100vh;
+        left: 0;
+        bottom: 0;
+        width: 100%;
         background-color: #f0f0f0;
-        width: 375px;
-      }
-      input {
-        font-size: 16px;
-      }
-      html {
-        font-size: 16px;
-        height: 100vh;
-      }
-      .scrollable_container {
-        overflow: auto;
+        transition: transform 0.1s ease-out;
+        transform-origin: left bottom;
       }
     </style>
   </head>
   <body>
-    <div class="scrollable_container">
-      <label for="hello-input">hello</label>
-      <input type="text" id="hello-input" value="Hello" />
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-      <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-
-      <div class="float_container">
-        This is a fixed position element at the bottom.
-      </div>
+    <textarea
+      id="textarea"
+      aria-label="テキスト入力エリア"
+      placeholder="ここは大きなテキストエリアです。モバイルデバイスでキーボードを出現させた時、その上にボタンが付いてきます。ズーム倍率を変更しても同じ大きさになります。"
+    >
+    ここは大きなテキストエリアです。モバイルデバイスでキーボードを出現させた時、その上にボタンが付いてきます。ズーム倍率を変更しても同じ大きさになります。
+    </textarea>
+    <div id="buttons">
+      キーボードに追従します。<span id="visualViewportHeight"></span>
     </div>
+    <script>
+      const buttons = document.getElementById("buttons");
+      function viewportHandler() {
+        const e = window.visualViewport,
+          t = `translate(${e.offsetLeft}px, ${
+            e.offsetTop + e.height - document.documentElement.clientHeight
+          }px)`,
+          n = `scale(${1 / e.scale})`;
+        buttons.style.transform = `${t} ${n}`;
+        document.getElementById(
+          "visualViewportHeight"
+        ).textContent = `vvh: ${e.height}px`;
+      }
+      window.visualViewport.addEventListener("scroll", viewportHandler),
+        window.visualViewport.addEventListener("resize", viewportHandler);
+    </script>
   </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+100dvhの検証
+-->
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>100dvhの検証</title>
+    <style>
+      .container {
+        display: flex;
+      }
+      .dvh-box {
+        width: 30%;
+        height: 100dvh;
+        background-color: lightblue;
+      }
+      .lvh-box {
+        width: 30%;
+        height: 100lvh;
+        background-color: lightcoral;
+      }
+      .svh-box {
+        width: 30%;
+        height: 100svh;
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="dvh-box">
+        100dvhのボックス
+        <input type="text" placeholder="テキスト入力欄" />
+      </div>
+      <div class="lvh-box">100lvhのボックス</div>
+      <div class="svh-box">100svhのボックス</div>
+    </div>
+  </body>
+</html>

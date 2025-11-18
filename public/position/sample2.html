@@ -11,18 +11,7 @@ https://katashin.info/posts/visual-viewport-api/demo/keyboard-button/
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>キーボード上部に張り付くボタンのデモ</title>
     <style>
-      textarea {
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        border: none;
-        resize: none;
-        outline: 0;
-      }
-
-      #buttons {
+      #message {
         display: flex;
         justify-content: center;
         position: fixed;
@@ -36,31 +25,23 @@ https://katashin.info/posts/visual-viewport-api/demo/keyboard-button/
     </style>
   </head>
   <body>
-    <textarea
-      id="textarea"
-      aria-label="テキスト入力エリア"
-      placeholder="ここは大きなテキストエリアです。モバイルデバイスでキーボードを出現させた時、その上にボタンが付いてきます。ズーム倍率を変更しても同じ大きさになります。"
-    >
-    ここは大きなテキストエリアです。モバイルデバイスでキーボードを出現させた時、その上にボタンが付いてきます。ズーム倍率を変更しても同じ大きさになります。
-    </textarea>
-    <div id="buttons">
-      キーボードに追従します。<span id="visualViewportHeight"></span>
-    </div>
+    <input type="text" placeholder="テキスト入力欄" />
+    <div id="message"></div>
     <script>
-      const buttons = document.getElementById("buttons");
+      const message = document.getElementById("message");
+
       function viewportHandler() {
-        const e = window.visualViewport,
-          t = `translate(${e.offsetLeft}px, ${
-            e.offsetTop + e.height - document.documentElement.clientHeight
-          }px)`,
-          n = `scale(${1 / e.scale})`;
-        buttons.style.transform = `${t} ${n}`;
-        document.getElementById(
-          "visualViewportHeight"
-        ).textContent = `vvh: ${e.height}px`;
+        const e = window.visualViewport;
+        const t = `translate(${e.offsetLeft}px, ${
+          e.offsetTop + e.height - document.documentElement.clientHeight
+        }px)`;
+        const n = `scale(${1 / e.scale})`;
+
+        message.style.transform = `${t} ${n}`;
+        message.textContent = `vvh: ${e.height}px`;
       }
-      window.visualViewport.addEventListener("scroll", viewportHandler),
-        window.visualViewport.addEventListener("resize", viewportHandler);
+      window.visualViewport.addEventListener("scroll", viewportHandler);
+      window.visualViewport.addEventListener("resize", viewportHandler);
     </script>
   </body>
 </html>

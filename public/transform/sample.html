@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
   <head>
-    <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
+
     <style>
       body {
         overflow: hidden;
@@ -17,28 +17,27 @@
       input {
         font-size: 16px;
       }
+      .container {
+        background-color: lightgreen;
+      }
       .bottom-area {
-        bottom: 16px;
         position: absolute;
       }
     </style>
   </head>
   <body>
-    <div>
+    <div class="container">
       <input type="text" placeholder="テキスト入力欄" />
     </div>
-    <div class="bottom-area"></div>
+    <div class="bottom-area">Hello World</div>
 
     <script>
       const bottomArea = document.querySelector(".bottom-area");
+
       function viewportHandler() {
-        const e = window.visualViewport;
-        const t = `translate(${e.offsetLeft}px, ${
-            e.offsetTop + e.height - document.documentElement.clientHeight
-          }px)`,
-          n = `scale(${1 / e.scale})`;
-        bottomArea.style.transform = `${t} ${n}`;
-        bottomArea.textContent = `vvh: ${e.height}px`;
+        const bodyBottom = document.body.scrollHeight;
+        console.log(`bodyBottom: ${bodyBottom}`);
+        bottomArea.style.transform = `translateY(${bodyBottom - 16}px)`;
       }
       window.visualViewport.addEventListener("scroll", viewportHandler);
       window.visualViewport.addEventListener("resize", viewportHandler);

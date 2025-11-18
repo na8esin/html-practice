@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+  iPhone + safariでは、テキストボックスにfocusしてる時に、一番下までスクロールすると
+  visualViewportHeightの数値がおかしくなる。
+-->
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1, viewport-fit=cover"
+    />
+    <title>visualViewportHeightの変化を見る</title>
+    <style>
+      body {
+        background-color: blueviolet;
+      }
+
+      #visualViewportHeight {
+        position: fixed;
+        bottom: 16px;
+        left: 16px;
+        right: 16px;
+      }
+
+      input {
+        font-size: 16px; /** focus時にiOSでズームするのを防止 **/
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="テキスト入力欄" />
+    <div id="visualViewportHeight"></div>
+    <script>
+      function viewportHandler() {
+        const vv = window.visualViewport;
+        const bodyBottom = document.body.getBoundingClientRect().bottom;
+        const bodyBottomY = document.body.getBoundingClientRect().y;
+
+        // visualViewportの高さを表示
+        const visualViewportHeight = document.getElementById(
+          "visualViewportHeight"
+        );
+        visualViewportHeight.textContent = `vvh: ${vv.height}px vh: ${window.innerHeight}px bodyBottomY: ${bodyBottomY}px`;
+      }
+
+      window.visualViewport.addEventListener("scroll", viewportHandler);
+      window.visualViewport.addEventListener("resize", viewportHandler);
+    </script>
+  </body>
+</html>

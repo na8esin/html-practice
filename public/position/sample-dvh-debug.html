@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <style>
+      body {
+        overflow: hidden;
+        height: 100dvh;
+        background-color: lightblue;
+        margin: 0;
+        padding: 0;
+      }
+      input {
+        font-size: 16px;
+      }
+      .container {
+        background-color: lightgreen;
+      }
+      .bottom-area {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" placeholder="テキスト入力欄" />
+    </div>
+    <div class="bottom-area">hello</div>
+
+    <script>
+      const ba = document.querySelector(".bottom-area");
+
+      function viewportHandler() {
+        // 変化しない
+        const scrollHeight = document.body.scrollHeight;
+        console.log(`scrollHeight: ${scrollHeight}`);
+
+        const bodyY = document.body.getBoundingClientRect().y;
+        console.log(`bodyY: ${bodyY}`);
+        const bodyBottom = document.body.getBoundingClientRect().bottom;
+        console.log(`bodyBottom: ${bodyBottom}`);
+
+        // これだと常に要素が存在する状態なので、無限に下に伸びていく
+        // const calculatedY = scrollHeight - 64 + bodyY * -1;
+
+        console.log(`calculatedY: ${calculatedY}`);
+
+        ba.style.transform = `translateY(${calculatedY}px)`;
+      }
+      window.visualViewport.addEventListener("scroll", viewportHandler);
+      window.visualViewport.addEventListener("resize", viewportHandler);
+    </script>
+  </body>
+</html>
