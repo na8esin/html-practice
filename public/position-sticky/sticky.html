@@ -1,0 +1,30 @@
+<html lang="ja">
+  <head>
+    <!--
+    下に移動しないなぁ
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  </head>
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: aqua;
+    }
+
+    .sticky-message {
+      position: sticky;
+      bottom: 16px; /* topしか使えないっぽい */
+      background-color: #f0f0f0;
+    }
+  </style>
+  <body>
+    <div class="sticky-message">
+      これは position: sticky;
+      を使った例です。スクロールしても画面下から16pxの位置に固定されます。
+    </div>
+  </body>
+</html>

@@ -32,14 +32,20 @@ https://katashin.info/posts/visual-viewport-api/demo/keyboard-button/
 
       function viewportHandler() {
         const e = window.visualViewport;
-        const t = `translate(${e.offsetLeft}px, ${
-          e.offsetTop + e.height - document.documentElement.clientHeight
-        }px)`;
+        const y =
+          e.offsetTop + e.height - document.documentElement.clientHeight;
+        const t = `translate(${e.offsetLeft}px, ${y}px)`;
         const n = `scale(${1 / e.scale})`;
 
         message.style.transform = `${t} ${n}`;
-        message.textContent = `vvh: ${e.height}px`;
+        message.innerText =
+          `vvh: ${e.height}px \n` +
+          `e.offsetTop: ${e.offsetTop}px \n` +
+          `y: ${y}px \n` +
+          `clientHeight: ${document.documentElement.clientHeight}px`;
+          ;
       }
+
       window.visualViewport.addEventListener("scroll", viewportHandler);
       window.visualViewport.addEventListener("resize", viewportHandler);
     </script>
