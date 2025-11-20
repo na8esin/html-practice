@@ -1,0 +1,31 @@
+<!-- position: fixedでもmarginは効く -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Position Fixed with Margin</title>
+  <style>
+    .fixed-box {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 200px;
+      height: 100px;
+      margin: 20px;
+      background-color: lightblue;
+      border: 2px solid blue;
+    }
+
+    input {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" placeholder="Type something here">
+  <div class="fixed-box">
+    This box has position: fixed and margin: 20px.
+  </div>
+</body>
+</html>
