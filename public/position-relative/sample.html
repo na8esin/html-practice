@@ -1,0 +1,26 @@
+<style>
+  /* 包含ブロックは position の値が static 以外 (fixed, absolute, relative, sticky) の直近の祖先要素におけるパディングボックスの辺によって構成されます。 */
+  .container {
+    display: flex;
+    position: relative;
+    height: 200px;
+    border: 1px solid #000;
+    width: 600px;
+    margin: auto;
+  }
+
+  .footer {
+    width: 600px;
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 16px;
+  }
+</style>
+
+<div class="container">
+  <p>This is a container with relative positioning for the footer.</p>
+  <div class="footer">
+    This footer is positioned relative to its normal position.
+  </div>
+</div>
