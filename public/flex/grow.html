@@ -1,0 +1,40 @@
+<style>
+  .container {
+    display: flex;
+    border: 2px solid #000;
+    padding: 10px;
+    gap: 10px;
+    flex-direction: column;
+    /*
+      Note: For flex-grow to work in a column layout, the container must have a defined height.
+      Without a defined height, the flex items will not grow as expected.
+      Reference:
+      https://stackoverflow.com/questions/35259772/flex-grow-not-working-in-column-layout
+    */
+    height: 100vh;
+  }
+
+  .box {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .box1 {
+    flex-grow: 1;
+  }
+
+  .box2 {
+    flex-grow: 2;
+  }
+
+  .box3 {
+    flex-grow: 1;
+  }
+</style>
+<div class="container">
+  <div class="box box1">Box 1 (flex-grow: 1)</div>
+  <div class="box box2">Box 2 (flex-grow: 2)</div>
+  <div class="box box3">Box 3 (flex-grow: 1)</div>
+</div>

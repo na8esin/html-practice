@@ -1,18 +1,30 @@
 <style>
   .container {
-  display: flex;
-  gap: 0;
-}
+    display: flex;
+    gap: 0;
+  }
+  .container2 {
+    display: inline-block;
+  }
+  .container3 {
+    display: inline;
+  }
 </style>
 
 <div>
-<span>おはおは</span>
-<span>おはおは</span>
-</div>
-<div>
-  <span>おはおはおはおは</span>
+  <!-- 余計な空白が挟まる -->
+  <span>おはおは</span>
+  <span>おはおは</span>
 </div>
 <div class="container"><!-- これだと改行しても余計な空白は発生しない -->
   <div>おはおは</div>
   <div>おはおは</div>
+</div>
+<div><!-- これもだめ -->
+  <div class="container2">おはおは</div>
+  <div class="container2">おはおは</div>
+</div>
+<div><!-- これもだめ -->
+  <div class="container3">おはおは</div>
+  <div class="container3">おはおは</div>
 </div>
