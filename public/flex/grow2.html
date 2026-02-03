@@ -11,30 +11,25 @@
       Reference:
       https://stackoverflow.com/questions/35259772/flex-grow-not-working-in-column-layout
     */
-    height: 100vh;
+    height: 90vh;
   }
 
   .box {
     background-color: #4CAF50;
     color: white;
-    padding: 20px;
     text-align: center;
   }
 
   .box1 {
+    height: 400px; /* 両方のflex-growが1でもheightが大きければ、大きくなる */
     flex-grow: 1;
   }
 
   .box2 {
-    flex-grow: 2;
-  }
-
-  .box3 {
-    flex-grow: 0; /* Default value, does not grow */
+    flex-grow: 1;
   }
 </style>
 <div class="container">
   <div class="box box1">Box 1 (flex-grow: 1)</div>
-  <div class="box box2">Box 2 (flex-grow: 2)</div>
-  <div class="box box3">Box 3 (flex-grow: 0)</div>
+  <div class="box box2">Box 2 (flex-grow: 1)</div>
 </div>
