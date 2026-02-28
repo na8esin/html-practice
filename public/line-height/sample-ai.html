@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>かいんとうろくのごあんない</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 24px;
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+        line-height: 1.8;
+        background: #f7f7f7;
+        color: #222;
+      }
+
+      .card {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 24px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        line-height: 1.4;
+      }
+
+      p {
+        margin: 0 0 16px;
+      }
+
+      form {
+        display: grid;
+        gap: 12px;
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+      }
+
+      input {
+        padding: 10px;
+        border: 1px solid #bbb;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      button {
+        margin-top: 8px;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        background: #0b5fff;
+        color: #fff;
+      }
+
+      small {
+        color: #555;
+      }
+
+      ruby rt {
+        font-size: 0.55em;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>
+        <ruby>会員登録<rt>かいいんとうろく</rt></ruby
+        >のごあんない
+      </h1>
+
+      <p>
+        いつもごりよういただき、ありがとうございます。<br />
+        よろしければ、<ruby>会員<rt>かいいん</rt></ruby
+        >になっていただけるとうれしいです。
+      </p>
+
+      <p>
+        <ruby>登録<rt>とうろく</rt></ruby
+        >すると、<ruby>限定<rt>げんてい</rt></ruby
+        >のおしらせや、おとくなじょうほうをおとどけできます。
+      </p>
+
+      <form>
+        <label for="name">おなまえ</label>
+        <input id="name" name="name" type="text" placeholder="やまだ たろう" />
+
+        <label for="email">めーるあどれす</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="example@example.com"
+        />
+
+        <label for="password">ぱすわーど</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="8もじいじょう"
+        />
+
+        <button type="submit">
+          <ruby>会員登録<rt>かいいんとうろく</rt></ruby
+          >する
+        </button>
+
+        <small
+          >※ ご<ruby>入力<rt>にゅうりょく</rt></ruby
+          >いただいたじょうほうは、<ruby>会員管理<rt>かいいんかんり</rt></ruby
+          >のためにのみ<ruby>利用<rt>りよう</rt></ruby
+          >します。</small
+        >
+      </form>
+    </main>
+  </body>
+</html>
