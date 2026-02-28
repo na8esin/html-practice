@@ -4,3 +4,6 @@
 npm install --global serve
 
 3000ポートがすでに使われてても自動でポートを割り当ててくれる。ということで簡単に複数サーバ起動可能
+
+# スクショ撮り直し
+npx playwright test tests/example.spec.ts
