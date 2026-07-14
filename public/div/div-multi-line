@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- 複数行をdivで囲うと余計な余白が入るんじゃないかという考察 -->
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div>初めまして</div>
+    <div>
+      こんにちは
+    </div>
+    <div>
+      こちらは<br />
+      複数行の<br />
+      テキストです
+    </div>
+  </body>
+</html>
