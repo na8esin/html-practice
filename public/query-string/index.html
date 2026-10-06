@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>query-string</title>
+</head>
+<body>
+  <p>例: <a href="?q=css&page=2&tag=a&tag=b">?q=css&amp;page=2&amp;tag=a&amp;tag=b</a></p>
+  <pre id="parsed"></pre>
+  <button id="next">page を +1</button>
+
+  <script type="module">
+    // ブラウザでは node_modules を直接 import できないので CDN の ESM 版を使う
+    import queryString from 'https://cdn.jsdelivr.net/npm/query-string@9.5.1/+esm';
+
+    const query = queryString.parse(location.search, {parseNumbers: true});
+    document.getElementById('parsed').textContent = JSON.stringify(query, null, 2);
+
+    document.getElementById('next').addEventListener('click', () => {
+      const next = {...query, page: (query.page ?? 1) + 1};
+      location.search = queryString.stringify(next);
+    });
+
+    // urlエンコードもしてくれる
+    console.log(queryString.stringify('ハロー'))
+  </script>
+</body>
+</html>

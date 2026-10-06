@@ -21,6 +21,7 @@
     "@types/node": "^22.13.17"
   },
   "dependencies": {
+    "query-string": "^9.5.1",
     "serve": "^14.2.6"
   }
 }
